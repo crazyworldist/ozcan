@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Saç Stil Deneme Uygulamasý</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #style-input {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #result-area {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    #hair-image {
+      max-width: 400px;
+      max-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Saç Stil Deneme Uygulamasý</h1>
+  
+  <div id="style-input">
+    <label for="hair-style">Saç Stili:</label>
+    <select id="hair-style">
+      <option value="style1">Stil 1</option>
+      <option value="style2">Stil 2</option>
+      <option value="style3">Stil 3</option>
+      <!-- Diðer saç stilleri -->
+    </select>
+    <button id="try-button">Deneme</button>
+  </div>
+  
+  <div id="result-area" style="display: none;">
+    <h2>Seçtiðiniz Saç Stili:</h2>
+    <img id="hair-image" src="" alt="Seçilen Saç Stili">
+  </div>
+  
+  <script>
+    // Stil seçimi deðiþtiðinde çalýþacak iþlev
+    function changeHairStyle() {
+      var selectElement = document.getElementById("hair-style");
+      var selectedStyle = selectElement.value;
+      var hairImage = document.getElementById("hair-image");
+      
+      // Seçilen stile göre saç stili görüntüsünü güncelle
+      if (selectedStyle === "style1") {
+        hairImage.src = "style1.jpg";
+      } else if (selectedStyle === "style2") {
+        hairImage.src = "style2.jpg";
+      } else if (selectedStyle === "style3") {
+        hairImage.src = "style3.jpg";
+      }
+      // Diðer stil seçenekleri için else-if bloklarý eklenebilir
+      
+      // Sonuç alanýný göster
+      document.getElementById("result-area").style.display = "block";
+    }
+
+    // Deneme butonuna týklama olayý
+    var tryButton = document.getElementById("try-button");
+    tryButton.addEventListener("click", changeHairStyle);
+  </script>
+</body>
+</html>
